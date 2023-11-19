@@ -1,5 +1,6 @@
 import "react-native-gesture-handler";
-import { StyleSheet, Text, SafeAreaView, SafeAreaViewBase } from "react-native";
+import { StyleSheet } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 import { useCallback, useEffect, useState } from "react";
 import * as SplashScreen from "expo-splash-screen";
 import * as Font from "expo-font";

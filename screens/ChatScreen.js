@@ -1,13 +1,13 @@
 import React, { useCallback, useState } from "react";
 import {
   ImageBackground,
-  SafeAreaView,
+  StyleSheet,
   TextInput,
   View,
   KeyboardAvoidingView,
   Platform,
 } from "react-native";
-import { StyleSheet } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 import backgroundImage from "../assets/images/droplet.jpeg";
 import MediaButton from "../components/MediaButton";
