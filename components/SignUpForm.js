@@ -2,19 +2,20 @@ import React from "react";
 import { Feather, FontAwesome } from "@expo/vector-icons";
 import Input from "../components/Input";
 import SubmitButton from "../components/SubmitButton";
-import { validate } from "validate.js";
+import {
+  validateEmail,
+  validateString,
+  validatePassword,
+} from "../utils/validateConstrains";
 
 const SignUpForm = () => {
   const inputChangeHandler = (inputId, inputValue) => {
     if (inputId === "firstName" || inputId === "lastName") {
-      console.log(
-        validate(
-          { firstName: inputValue },
-          { firstName: { presence: { allowEmpty: false } } }
-        )
-      );
+      console.log(validateString(inputId, inputValue));
     } else if (inputId === "email") {
+      console.log(validateEmail(inputId, inputValue));
     } else if (inputId === "password") {
+      console.log(validatePassword(inputId, inputValue));
     }
   };
 
@@ -26,6 +27,7 @@ const SignUpForm = () => {
         icon="user-o"
         iconPack={FontAwesome}
         onInputChanged={inputChangeHandler}
+        autoCapitalize="none"
       />
       <Input
         id="lastName"
@@ -33,6 +35,7 @@ const SignUpForm = () => {
         icon="user-o"
         iconPack={FontAwesome}
         onInputChanged={inputChangeHandler}
+        autoCapitalize="none"
       />
       <Input
         id="email"
@@ -40,6 +43,8 @@ const SignUpForm = () => {
         icon="mail"
         iconPack={Feather}
         onInputChanged={inputChangeHandler}
+        autoCapitalize="none"
+        keyboardType="email-address"
       />
       <Input
         id="password"
@@ -47,6 +52,8 @@ const SignUpForm = () => {
         icon="lock"
         iconPack={Feather}
         onInputChanged={inputChangeHandler}
+        autoCapitalize="none"
+        secureTextEntry
       />
       <SubmitButton
         onPress={() => console.log("button pressed")}
